@@ -83,6 +83,13 @@ const Header = () => {
                             <Link className="nav-link" to="/coworkings">
                                 Espaces de coworking
                             </Link>
+
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/createcoworking">
+                                Création de coworking
+                            </Link>
+
                         </li>
                         {/* Ajoutez ici d'autres liens de navigation si nécessaire */}
                     </ul>

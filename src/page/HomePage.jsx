@@ -1,7 +1,8 @@
 import React from "react";
 
 const HomePage = () => {
-    return <p>WELCOME REAT FRONT-BACK</p>;
+    return <p>WELCOME REACT FRONT-BACK</p>;
+
 };
 
 export default HomePage;

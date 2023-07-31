@@ -4,6 +4,7 @@ import Header from "./component/Header";
 import Footer from "./component/Footer";
 import HomePage from "./page/HomePage";
 import CoworkingsPage from "./page/CoworkingsPage";
+import CreateCoworkingPage from "./page/CreateCoworkingPage"
 // import CoworkingItem from "./page/CoworkingItem";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/coworkings" element={<CoworkingsPage />} />
+          <Route path="/createcoworking" element={<CreateCoworkingPage />} />
         </Routes>
         <Footer />
       </div>

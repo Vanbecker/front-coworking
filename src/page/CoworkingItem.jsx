@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 const CoworkingItem = ({ coworking, handleDelete }) => {
@@ -19,12 +20,12 @@ const CoworkingItem = ({ coworking, handleDelete }) => {
                     Adresse : {coworking.address.number} {coworking.address.street} - {coworking.address.postcode} {coworking.address.city}
                 </p>
                 {!showConfirmation && (
-                    <button className="btn btn-danger custom-delete-button" onClick={handleShowConfirmation}>Supprimer</button>
+                    <button className="btn" style={{ backgroundColor: "#FFB8BD", borderColor: "#FFB8BD", color: "white" }} onClick={handleShowConfirmation}>Supprimer</button>
                 )}
                 {showConfirmation && (
                     <div>
                         <p>Voulez-vous vraiment supprimer ce coworking ?</p>
-                        <button className="btn btn-danger" onClick={() => handleDelete(coworking.id)}>Confirmer</button>
+                        <button className="btn" style={{ backgroundColor: "#FFB8BD", borderColor: "#FFB8BD", color: "white" }} onClick={() => handleDelete(coworking.id)}>Confirmer</button>
                         <button className="btn btn-secondary" onClick={handleCancel}>Annuler</button>
                     </div>
                 )}
@@ -34,6 +35,3 @@ const CoworkingItem = ({ coworking, handleDelete }) => {
 };
 
 export default CoworkingItem;
-
-
-
