@@ -1,5 +1,5 @@
-
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CoworkingItem = ({ coworking, handleDelete }) => {
     const [showConfirmation, setShowConfirmation] = useState(false);
@@ -19,14 +19,16 @@ const CoworkingItem = ({ coworking, handleDelete }) => {
                 <p className="card-text">
                     Adresse : {coworking.address.number} {coworking.address.street} - {coworking.address.postcode} {coworking.address.city}
                 </p>
-                {!showConfirmation && (
-                    <button className="btn" style={{ backgroundColor: "#FFB8BD", borderColor: "#FFB8BD", color: "white" }} onClick={handleShowConfirmation}>Supprimer</button>
-                )}
-                {showConfirmation && (
+                {!showConfirmation ? (
+                    <div>
+                        <button className="btn btn-danger" onClick={handleShowConfirmation}>Supprimer</button>
+                        <Link to={`/coworkings/${coworking.id}/update`} style={{ backgroundColor: "#FFB8BD", borderColor: "#FFB8BD", color: "white" }} className="btn btn-primary ml-2">Modifier</Link>
+                    </div>
+                ) : (
                     <div>
                         <p>Voulez-vous vraiment supprimer ce coworking ?</p>
-                        <button className="btn" style={{ backgroundColor: "#FFB8BD", borderColor: "#FFB8BD", color: "white" }} onClick={() => handleDelete(coworking.id)}>Confirmer</button>
-                        <button className="btn btn-secondary" onClick={handleCancel}>Annuler</button>
+                        <button className="btn btn-danger" onClick={() => handleDelete(coworking.id)}>Confirmer</button>
+                        <button className="btn btn-secondary ml-2" onClick={handleCancel}>Annuler</button>
                     </div>
                 )}
             </div>
@@ -35,3 +37,4 @@ const CoworkingItem = ({ coworking, handleDelete }) => {
 };
 
 export default CoworkingItem;
+

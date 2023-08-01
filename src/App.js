@@ -4,8 +4,8 @@ import Header from "./component/Header";
 import Footer from "./component/Footer";
 import HomePage from "./page/HomePage";
 import CoworkingsPage from "./page/CoworkingsPage";
-import CreateCoworkingPage from "./page/CreateCoworkingPage"
-// import CoworkingItem from "./page/CoworkingItem";
+import CreateCoworkingPage from "./page/CreateCoworkingPage";
+import UpdateCoworkingPage from "./page/UpdateCoworkingPage"; // Ajouter un point ici
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/coworkings" element={<CoworkingsPage />} />
           <Route path="/createcoworking" element={<CreateCoworkingPage />} />
+          <Route exact path="/coworkings/:id/update" element={<UpdateCoworkingPage />} />
         </Routes>
         <Footer />
       </div>
