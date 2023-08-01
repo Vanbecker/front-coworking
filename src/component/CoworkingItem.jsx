@@ -22,7 +22,7 @@ const CoworkingItem = ({ coworking, handleDelete }) => {
                 {!showConfirmation ? (
                     <div>
                         <button className="btn btn-danger" onClick={handleShowConfirmation}>Supprimer</button>
-                        <Link to={`/coworkings/${coworking.id}/update`} style={{ backgroundColor: "#FFB8BD", borderColor: "#FFB8BD", color: "white" }} className="btn btn-primary ml-2">Modifier</Link>
+                        <Link to={`/admin/coworkings/${coworking.id}/update`} style={{ backgroundColor: "#FFB8BD", borderColor: "#FFB8BD", color: "white" }} className="btn btn-primary ml-2">Modifier</Link>
                     </div>
                 ) : (
                     <div>

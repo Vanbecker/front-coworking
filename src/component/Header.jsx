@@ -39,13 +39,13 @@ const Header = () => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/coworkings">
+                            <Link className="nav-link" to="/admin/coworkings">
                                 Espaces de coworking
                             </Link>
 
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/createcoworking">
+                            <Link className="nav-link" to="admin/createcoworking">
                                 Création de coworking
                             </Link>
 

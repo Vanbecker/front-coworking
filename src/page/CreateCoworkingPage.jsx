@@ -54,7 +54,7 @@ const CreateCoworkingPage = () => {
         const responseCreateJs = await responseCreate.json();
 
         // on redirige vers la liste des coworkings
-        navigate("/coworkings");
+        navigate("/admin/coworkings");
     };
 
     return (

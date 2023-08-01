@@ -5,7 +5,9 @@ import Footer from "./component/Footer";
 import HomePage from "./page/HomePage";
 import CoworkingsPage from "./page/CoworkingsPage";
 import CreateCoworkingPage from "./page/CreateCoworkingPage";
-import UpdateCoworkingPage from "./page/UpdateCoworkingPage"; // Ajouter un point ici
+import UpdateCoworkingPage from "./page/UpdateCoworkingPage";
+import LoginPage from "./page/LoginPage";
+import HeaderAdmin from "./component/HeaderAdmin";
 
 function App() {
   return (
@@ -14,9 +16,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/coworkings" element={<CoworkingsPage />} />
-          <Route path="/createcoworking" element={<CreateCoworkingPage />} />
-          <Route exact path="/coworkings/:id/update" element={<UpdateCoworkingPage />} />
+          <Route path="/admin/coworkings" element={<CoworkingsPage />} />
+          <Route path="/admin/createcoworking" element={<CreateCoworkingPage />} />
+          <Route exact path="/admin/coworkings/:id/update" element={<UpdateCoworkingPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
         <Footer />
       </div>
