@@ -1,5 +1,7 @@
-// import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import HeaderAdmin from "../../component/admin/HeaderAdmin";
+import Cookies from "js-cookie";
+import { useEffect } from "react";
 
 const CreateCoworkingPage = () => {
     const navigate = useNavigate();
@@ -20,7 +22,7 @@ const CreateCoworkingPage = () => {
         const address_postcode = event.target.address_postcode.value;
         const address_city = event.target.address_city.value;
 
-        // on construit l'objet coworking tel qu'il est attendu par l'api
+        // on construit l'ojet coworking tel qu'il est attendu par l'api
         const coworkingData = {
             name: name,
             price: {
@@ -43,11 +45,15 @@ const CreateCoworkingPage = () => {
         // en lui passant les données du coworking
         // en json dans la clé "body"
         // on précise qu'on envoie un json, via le header
+
+        const token = Cookies.get("jwt");
+
         const responseCreate = await fetch("http://localhost:3010/api/coworkings", {
             method: "POST",
             body: JSON.stringify(coworkingData),
             headers: {
                 "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
             },
         });
 
@@ -57,64 +63,79 @@ const CreateCoworkingPage = () => {
         navigate("/admin/coworkings");
     };
 
+    useEffect(() => {
+        if (!Cookies.get("jwt")) {
+            navigate("/login");
+        }
+    }, []);
+
     return (
-        <form className="container mt-5" onSubmit={handleCreateCoworking}>
-            <div className="mb-3">
-                <label htmlFor="name" className="form-label">Name</label>
-                <input type="text" className="form-control" id="name" name="name" />
-            </div>
+        <>
+            <HeaderAdmin />
 
-            <div className="mb-3">
-                <label htmlFor="superficy" className="form-label">Superficy</label>
-                <input type="number" className="form-control" id="superficy" name="superficy" />
-            </div>
+            <form className="container mt-5" onSubmit={handleCreateCoworking}>
+                <div className="mb-3">
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input type="text" className="form-control" id="name" name="name" />
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="capacity" className="form-label">Capacity</label>
-                <input type="number" className="form-control" id="capacity" name="capacity" />
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="superficy" className="form-label">Superficy</label>
+                    <input type="number" className="form-control" id="superficy" name="superficy" />
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="price_hour" className="form-label">Price by hour</label>
-                <input type="number" className="form-control" id="price_hour" name="price_hour" />
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="capacity" className="form-label">Capacity</label>
+                    <input type="number" className="form-control" id="capacity" name="capacity" />
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="price_day" className="form-label">Price by day</label>
-                <input type="number" className="form-control" id="price_day" name="price_day" />
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="price_hour" className="form-label">Price by hour</label>
+                    <input type="number" className="form-control" id="price_hour" name="price_hour" />
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="price_month" className="form-label">Price by month</label>
-                <input type="number" className="form-control" id="price_month" name="price_month" />
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="price_day" className="form-label">Price by day</label>
+                    <input type="number" className="form-control" id="price_day" name="price_day" />
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="address_number" className="form-label">Address number</label>
-                <input type="number" className="form-control" id="address_number" name="address_number" />
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="price_month" className="form-label">Price by month</label>
+                    <input type="number" className="form-control" id="price_month" name="price_month" />
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="address_street" className="form-label">Address street</label>
-                <input type="text" className="form-control" id="address_street" name="address_street" />
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="address_number" className="form-label">Address number</label>
+                    <input type="number" className="form-control" id="address_number" name="address_number" />
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="address_postcode" className="form-label">Address zipcode</label>
-                <input type="number" className="form-control" id="address_postcode" name="address_postcode" />
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="address_street" className="form-label">Address street</label>
+                    <input type="text" className="form-control" id="address_street" name="address_street" />
+                </div>
 
-            <div className="mb-3">
-                <label htmlFor="address_city" className="form-label">Address city</label>
-                <input type="text" className="form-control" id="address_city" name="address_city" />
-            </div>
+                <div className="mb-3">
+                    <label htmlFor="address_postcode" className="form-label">Address zipcode</label>
+                    <input type="number" className="form-control" id="address_postcode" name="address_postcode" />
+                </div>
 
-            <button type="submit" style={{ backgroundColor: "#FFB8BD", borderColor: "#FFB8BD", color: "white" }} className="btn btn-primary">Submit</button>
-        </form>
+                <div className="mb-3">
+                    <label htmlFor="address_city" className="form-label">Address city</label>
+                    <input type="text" className="form-control" id="address_city" name="address_city" />
+                </div>
+
+                <button type="submit" style={{ backgroundColor: "#FFB8BD", borderColor: "#FFB8BD", color: "white" }} className="btn btn-primary">Submit</button>
+            </form>
+
+
+        </>
     );
 };
 
 export default CreateCoworkingPage;
 
-/////
+
+
+//////
+
 

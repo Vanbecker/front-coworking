@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import HeaderAdmin from "../../component/admin/HeaderAdmin";
+import Cookies from "js-cookie";
 
 const UpdateCoworkingPage = () => {
     const navigate = useNavigate();
@@ -21,6 +23,9 @@ const UpdateCoworkingPage = () => {
         }
     };
     useEffect(() => {
+        if (!Cookies.get("jwt")) {
+            navigate("/login");
+        }
         // Appel de la fonction pour récupérer les données au chargement du composant
         fetchCoworkingData();
     }, [id]);
@@ -59,12 +64,16 @@ const UpdateCoworkingPage = () => {
         ////
 
         try {
+
+            const token = Cookies.get('jwt');
+
             // Effectuer une requête PUT pour mettre à jour le coworking avec les données du formulaire
             const response = await fetch(`http://localhost:3010/api/coworkings/${id}`, {
                 method: "PUT",
                 body: JSON.stringify(coworkingData),
                 headers: {
                     "Content-Type": "application/json",
+                    Authorization: `Bearer ${token}`
                 },
             });
 
@@ -72,7 +81,7 @@ const UpdateCoworkingPage = () => {
 
             if (response.ok) {
                 // Redirection vers la liste des coworkings après la mise à jour réussie
-                navigate("/coworkings");
+                navigate("/admin/coworkings");
             } else {
                 console.error("Une erreur est survenue lors de la mise à jour du coworking.");
             }

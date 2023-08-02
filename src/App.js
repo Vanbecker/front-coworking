@@ -8,6 +8,7 @@ import CreateCoworkingPage from "./page/admin/CreateCoworkingPage";
 import UpdateCoworkingPage from "./page/admin/UpdateCoworkingPage";
 import LoginPage from "./page/public/LoginPage";
 import DashBoardPage from "./page/admin/DashBoardPage";
+// import jwtDecode from "jwt-decode"; // Importez la bibliothèque jwt-decode
 // import HeaderAdmin from "./component/admin/HeaderAdmin";
 
 function App() {
