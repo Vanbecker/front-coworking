@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from "react";
-import CoworkingItem from "../component/CoworkingItem";
+import CoworkingItem from "../../component/public/CoworkingItem";
 
 const CoworkingsPage = () => {
     const [coworkings, setCoworkings] = useState([]);
