@@ -139,7 +139,7 @@ const HeaderAdmin = () => {
 
         // Si l'utilisateur a le rôle user (ID 1)
         // On le redirige vers l'accueil public
-        if (user.data.role === 2) {
+        if (user.data.role === 1) {
             navigate("/");
         }
     }, []);

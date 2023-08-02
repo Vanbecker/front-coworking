@@ -46,7 +46,6 @@ const LoginPage = () => {
                             <label htmlFor="username" className="form-label">Nom d'utilisateur</label>
                             <input type="text" className="form-control" name="username" />
                         </div>
-
                         <div className="mb-3">
                             <label htmlFor="password" className="form-label">Mot de passe</label>
                             <input type="password" className="form-control" name="password" />
