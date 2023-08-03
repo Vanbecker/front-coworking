@@ -8,8 +8,7 @@ import CreateCoworkingPage from "./page/admin/CreateCoworkingPage";
 import UpdateCoworkingPage from "./page/admin/UpdateCoworkingPage";
 import LoginPage from "./page/public/LoginPage";
 import DashBoardPage from "./page/admin/DashBoardPage";
-// import jwtDecode from "jwt-decode"; // Importez la bibliothèque jwt-decode
-// import HeaderAdmin from "./component/admin/HeaderAdmin";
+import ReviewCoworkingPage from "./page/public/ReviewCoworkingPage";
 
 function App() {
   return (
@@ -19,11 +18,13 @@ function App() {
         <Routes>
           <Route path="/" element={<DashBoardPage />} />
           <Route path="/" element={<HomePage />} />
+
           <Route path="/admin/coworkings" element={<CoworkingsPage />} />
           <Route path="/login" element={<LoginPage />} />
-
           <Route path="/admin/createcoworking" element={<CreateCoworkingPage />} />
           <Route exact path="/admin/coworkings/:id/update" element={<UpdateCoworkingPage />} />
+
+          <Route path="/public/ReviewCoworkingsPagePublic" element={<ReviewCoworkingPage />} />
         </Routes>
         <Footer />
       </div>

@@ -12,7 +12,7 @@ const Header = () => {
                         alt="Logo"
                         style={{ height: "50px", marginRight: "30px" }} // Ajuster la hauteur de l'image
                     />
-                    Mes Coworkings
+                    {/* Mes Coworkings */}
                 </Link>
                 {/* Fin de l'image à gauche */}
 
@@ -48,9 +48,13 @@ const Header = () => {
                             <Link className="nav-link" to="admin/createcoworking">
                                 Création de coworking
                             </Link>
-
                         </li>
                         {/* Ajoutez ici d'autres liens de navigation si nécessaire */}
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/public/ReviewCoworkingsPagePublic">
+                                Commentaire des coworkings
+                            </Link>
+                        </li>
                     </ul>
                 </div>
                 {/* Fin des liens de navigation */}
