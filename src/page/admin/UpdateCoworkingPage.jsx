@@ -89,7 +89,9 @@ const UpdateCoworkingPage = () => {
             console.error("Une erreur est survenue lors de la mise à jour du coworking :", error);
         }
     };
-    // console.log(coworkingData)
+
+
+
     return (
         <div className="container mt-5">
             {coworkingData ? (

@@ -134,6 +134,7 @@ import React, { useEffect, useState } from "react";
 import CoworkingItem from "../../component/public/CoworkingItem";
 import Cookies from "js-cookie";
 import { Link, useNavigate } from "react-router-dom";
+import HeaderAdmin from "../../component/admin/HeaderAdmin";
 
 const CoworkingsPage = () => {
     const [coworkings, setCoworkings] = useState([]);
@@ -183,13 +184,18 @@ const CoworkingsPage = () => {
     };
 
 
+
     return (
-        <div>
-            {coworkings.map((coworking) => (
-                <CoworkingItem key={coworking.id} coworking={coworking} handleDelete={handleDelete} />
-            ))}
-            {deleteMessage && <p>{deleteMessage}</p>}
-        </div>
+        <>
+            <HeaderAdmin />
+            <div>
+                {coworkings.map((coworking) => (
+                    <CoworkingItem key={coworking.id} coworking={coworking} handleDelete={handleDelete} />
+                ))}
+                {deleteMessage && <p>{deleteMessage}</p>}
+            </div>
+
+        </>
     );
 };
 

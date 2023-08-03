@@ -6,11 +6,9 @@ import { useEffect } from "react";
 const DashboardPage = () => {
     const navigate = useNavigate();
 
-    useEffect(() => {
-        if (!Cookies.get("jwt")) {
-            navigate("/login");
-        }
-    }, []);
+    if (!Cookies.get("jwt")) {
+        navigate("/login");
+    }
 
     return (
         <>

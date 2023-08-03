@@ -3,6 +3,8 @@
 import React from "react";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import jwtDecode from "jwt-decode";
+
 
 const LoginPage = () => {
 
@@ -32,8 +34,18 @@ const LoginPage = () => {
             // Stocker le jwt dans un cookie
             Cookies.set("jwt", jwt);
 
-            navigate("/admin/coworkings");
 
+            // décode le jwt pour récupérer le role
+            const decodedToken = jwtDecode(jwt);
+            const userRole = decodedToken.role;
+            // en fonction du role tu diriges soit vers admin soit vers public 
+
+            // Redirige l'utilisateur en fonction de son rôle
+            if (userRole === "admin") {
+                navigate("/admin");
+            } else {
+                navigate("/");
+            }
         }
     };
 
